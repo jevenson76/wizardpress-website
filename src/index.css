@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glow {
+  box-shadow: 0 0 10px theme('colors.blue.400'),
+              0 0 20px theme('colors.blue.400');
+}
+
+.nav-button-glow {
+  box-shadow: 0 0 10px theme('colors.blue.400');
+  transition: box-shadow 0.3s ease;
+}
+
+.nav-button-glow:hover {
+  box-shadow: 0 0 20px theme('colors.blue.400'),
+              0 0 30px theme('colors.blue.500');
+}
+
+/* Floating orbs */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+  animation: float infinite ease-in-out alternate;
+  opacity: 0.5;
+  mix-blend-mode: screen;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+/* Book flip animation */
+.perspective {
+  perspective: 2000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.sparkle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle-float linear infinite;
+}
+
+/* Custom form styles */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  @apply bg-transparent border-b border-blue-400/30 rounded-none px-4 py-2 
+    text-white placeholder-blue-300/50 focus:outline-none focus:border-blue-400
+    transition-colors duration-300;
+}
+
+input[type="checkbox"] {
+  @apply appearance-none w-4 h-4 border border-blue-400/30 rounded
+    checked:bg-blue-500 checked:border-blue-500
+    focus:outline-none focus:ring-0 focus:ring-offset-0
+    transition-colors duration-300
+    relative;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  @apply absolute text-white text-xs font-bold
+    top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+@keyframes sparkle-float {
+  0% {
+    transform: translateY(0) scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(-10px) scale(1);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translateY(-20px) scale(0.6);
+    opacity: 0.6;
+  }
+  60% {
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0.9;
+  }
+  80% {
+    transform: translateY(-40px) scale(0.7);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-50px) scale(0);
+    opacity: 0;
+  }
+}
+
+.trail-sparkle {
+  animation-name: trail-sparkle;
+}
+
+@keyframes trail-sparkle {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
