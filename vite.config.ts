@@ -9,7 +9,7 @@ export default defineConfig({
       fastRefresh: process.env.NODE_ENV !== 'production',
     }),
   ],
-  base: '/wizardpress-website/', // GitHub repository name
+  base: '/jevenson76.github.io/', // GitHub Pages base URL
   build: {
     outDir: 'dist',
     sourcemap: true,
