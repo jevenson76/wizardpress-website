@@ -9,7 +9,7 @@ export default defineConfig({
       fastRefresh: process.env.NODE_ENV !== 'production',
     }),
   ],
-  base: '/jevenson76.github.io/', // GitHub Pages base URL
+  base: '/', // Root path for custom domain
   build: {
     outDir: 'dist',
     sourcemap: true,
